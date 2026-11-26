@@ -1,0 +1,14 @@
+{
+  "name": "Carlos Humanes, ingeniero biomédico",
+  "short_name": "Pinchar sin manos",
+  "description": "Tecnología de apoyo de bajo coste para personas con tetraplejia.",
+  "start_url": "./",
+  "display": "browser",
+  "lang": "es",
+  "background_color": "#0B1B1F",
+  "theme_color": "#0B1B1F",
+  "icons": [
+    { "src": "icono-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icono-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

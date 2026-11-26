@@ -1,0 +1,28 @@
+/* Estilo: closh-basquiat — tokens de diseño (variables CSS). Stack vanilla (D-002). */
+:root {
+  /* Paleta */
+  --color-fondo:      #0E0E0E;
+  --color-primario:   #F5F0E1;  /* crema / papel */
+  --color-texto:      #F5F0E1;
+  --color-acento-1:   #FFD400;  /* amarillo grito */
+  --color-acento-2:   #E63329;  /* rojo bandera   */
+  --color-acento-3:   #2D6BE3;  /* azul primario  */
+  --color-negro:      #0E0E0E;
+
+  /* Tipografía */
+  --font-titular:    "Anton", "Archivo Black", Impact, sans-serif;
+  --font-marcador:   "Permanent Marker", "Caveat", cursive;
+  --font-cuerpo:     "Inter", system-ui, sans-serif;
+  --peso-cuerpo:     400;
+  --escala-h1: clamp(3rem, 12vw, 9rem);
+  --escala-h2: clamp(2rem, 6vw, 3.5rem);
+  --line-height: 1.5;
+
+  /* Forma y espacio — "hecho a mano" */
+  --radio: 2px;
+  --borde-grueso: 4px solid var(--color-negro);
+  --sombra-dura: 8px 8px 0 var(--color-negro);   /* offset, sin blur */
+  --rotacion: -2deg;
+  --espacio: 1.5rem;
+  --ancho-max: 1200px;
+}

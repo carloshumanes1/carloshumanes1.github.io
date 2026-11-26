@@ -1,0 +1,353 @@
+/* carlos-humanes/closh.html — la cara CLOSH, estilo closh-basquiat (tokens en tokens-closh.css).
+   Vanilla, sin build. No toca styles.css ni tokens.css de la cara profesional. */
+
+:root {
+  --margen: clamp(1rem, 4vw, 2.5rem);
+  --bloque: clamp(3rem, 8vw, 6rem);
+  --cuerpo: 1.0625rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-cuerpo);
+  font-size: var(--cuerpo);
+  font-weight: var(--peso-cuerpo);
+  line-height: var(--line-height);
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  /* papel sucio sobre negro: dos manchas de color muy tenues */
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(255, 212, 0, .07), transparent 42%),
+    radial-gradient(circle at 90% 70%, rgba(45, 107, 227, .08), transparent 45%);
+}
+
+h1, h2, h3, p, ul, ol, dl, figure { margin: 0; }
+img, svg, video { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: .15em; }
+
+:focus-visible {
+  outline: 3px solid var(--color-acento-1);
+  outline-offset: 3px;
+}
+
+.salto {
+  position: absolute; left: -999px; top: 0;
+  padding: .5rem 1rem; background: var(--color-acento-1); color: var(--color-negro);
+  font-family: var(--font-titular); text-transform: uppercase; text-decoration: none;
+}
+.salto:focus { left: var(--margen); top: .5rem; z-index: 100; }
+
+.contenedor {
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: var(--margen);
+}
+
+/* ---------- Navegación ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(14, 14, 14, .92);
+  backdrop-filter: blur(6px);
+  border-bottom: 3px solid var(--color-acento-1);
+}
+.nav .contenedor {
+  display: flex; align-items: center; gap: 1.25rem;
+  min-height: 3.75rem;
+}
+.marca {
+  display: flex; align-items: center; gap: .5rem;
+  text-decoration: none; white-space: nowrap;
+  font-family: var(--font-titular); font-size: 1.6rem; letter-spacing: .04em;
+}
+.marca .corona { width: 34px; height: 24px; color: var(--color-acento-1); }
+.marca sup { font-family: var(--font-marcador); color: var(--color-acento-2); font-size: .7em; }
+.nav nav { min-width: 0; flex: 1 1 auto; }
+.nav-lista {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 1.25rem; align-items: center;
+  overflow-x: auto; scrollbar-width: none;
+  font-family: var(--font-titular); text-transform: uppercase; letter-spacing: .05em; font-size: .95rem;
+}
+/* Con sitio, a la derecha; si no caben, la lista se desplaza en horizontal. */
+.nav-lista > li:first-child { margin-left: auto; }
+.nav-lista::-webkit-scrollbar { display: none; }
+.nav-lista a {
+  text-decoration: none; white-space: nowrap; display: inline-block;
+  padding-block: 1.1rem;
+  border-bottom: 3px solid transparent;
+}
+.nav-lista a:hover { border-bottom-color: var(--color-acento-2); }
+.nav-lista .otra-cara a {
+  font-family: var(--font-marcador); text-transform: none; letter-spacing: 0;
+  color: var(--color-acento-1); font-size: 1rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow-x: clip;               /* el garabato decorativo no debe crear scroll */
+  padding-block: clamp(2.5rem, 8vw, 5.5rem) clamp(3rem, 8vw, 5rem);
+}
+.hero .contenedor { position: relative; }
+.hero .corona-grande {
+  width: clamp(64px, 10vw, 96px); height: auto;
+  color: var(--color-acento-1);
+  transform: rotate(-6deg);
+  margin-bottom: -.25rem;
+}
+.hero .kicker {
+  display: inline-block;
+  font-family: var(--font-marcador); color: var(--color-acento-1);
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  transform: rotate(-3deg);
+  margin: .5rem 0 0 .25rem;
+}
+.hero h1 {
+  font-family: var(--font-titular);
+  font-size: clamp(5rem, 24vw, 15rem);
+  line-height: .85;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin-top: .25rem;
+}
+.hero h1 .copy {
+  font-family: var(--font-marcador);
+  font-size: .22em; vertical-align: top;
+  color: var(--color-acento-2);
+  display: inline-block; margin-left: .15em; margin-top: .4em;
+}
+.hero .entrada {
+  margin-top: 1.5rem;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 600;
+  max-width: 28ch;
+}
+.hero .firma {
+  margin-top: .75rem;
+  font-family: var(--font-marcador);
+  color: var(--color-primario);
+  font-size: 1.15rem;
+  max-width: 34ch;
+}
+.hero .firma b { color: var(--color-acento-1); font-weight: 400; }
+.acciones { display: flex; flex-wrap: wrap; gap: 1.1rem; margin-top: 2.25rem; }
+.hero .garabato {
+  position: absolute; right: 2%; bottom: 0;
+  width: clamp(120px, 18vw, 220px); height: auto;
+  transform: rotate(8deg);
+  pointer-events: none;
+}
+
+/* ---------- Botones: bloque sólido, borde grueso, sombra dura ---------- */
+.boton {
+  display: inline-block;
+  font-family: var(--font-titular);
+  text-transform: uppercase; letter-spacing: .04em; text-decoration: none;
+  padding: .85rem 1.5rem;
+  border: var(--borde-grueso);
+  box-shadow: var(--sombra-dura);
+  border-radius: var(--radio);
+  background: var(--color-acento-1); color: var(--color-negro);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.boton:hover { transform: translate(2px, 2px); box-shadow: 6px 6px 0 var(--color-negro); }
+.boton:active { transform: translate(4px, 4px); box-shadow: 4px 4px 0 var(--color-negro); }
+.boton-rojo { background: var(--color-acento-2); color: var(--color-primario); }
+.boton-crema { background: var(--color-primario); color: var(--color-negro); }
+
+/* ---------- Tira ---------- */
+.tira {
+  background: var(--color-acento-2); color: var(--color-negro);
+  font-family: var(--font-titular); text-transform: uppercase; letter-spacing: .06em;
+  border-block: 3px solid var(--color-negro);
+  overflow: hidden; white-space: nowrap;
+}
+.tira span { display: inline-block; padding: .55rem 0; animation: desliza 22s linear infinite; }
+.tira b { margin: 0 1.5rem; font-weight: 400; }
+@keyframes desliza { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- Secciones ---------- */
+.seccion { padding-block: var(--bloque); border-top: 3px solid rgba(245, 240, 225, .12); }
+.seccion h2 {
+  display: inline-block;
+  font-family: var(--font-titular);
+  font-size: var(--escala-h2);
+  text-transform: uppercase;
+  line-height: 1;
+  transform: rotate(var(--rotacion));
+  margin-bottom: 1.75rem;
+  padding: .1em .35em;
+  background: var(--color-acento-1); color: var(--color-negro);
+  box-shadow: 6px 6px 0 var(--color-negro);
+}
+.seccion h2 + p { max-width: 60ch; }
+.nota-marcador {
+  font-family: var(--font-marcador);
+  color: var(--color-acento-1);
+  font-size: 1.15rem;
+}
+.tachado { text-decoration: line-through; text-decoration-thickness: .12em; text-decoration-color: var(--color-acento-2); }
+
+/* ---------- El reel ---------- */
+.reel { display: grid; gap: 2.5rem; grid-template-columns: 1fr; margin-top: 1.5rem; align-items: start; }
+.reel-marco { max-width: 380px; }
+.hueco-video {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  border: 3px dashed var(--color-acento-1);
+  border-radius: var(--radio);
+  background: var(--color-negro);
+  box-shadow: var(--sombra-dura);
+  overflow: hidden;
+}
+.hueco-video img { width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+.hueco-video .hueco-texto {
+  position: absolute; inset: auto .75rem .75rem .75rem;
+  background: var(--color-primario); color: var(--color-negro);
+  border: 3px solid var(--color-negro);
+  padding: .75rem .9rem;
+  font-size: .9375rem; line-height: 1.4;
+  transform: rotate(-1.5deg);
+}
+.hueco-video .hueco-texto strong { font-family: var(--font-marcador); font-weight: 400; display: block; margin-bottom: .2rem; }
+.reel-marco video { width: 100%; height: auto; border: var(--borde-grueso); box-shadow: var(--sombra-dura); background: #000; }
+.reel-marco figcaption { margin-top: 1.25rem; font-size: .9375rem; color: var(--color-primario); opacity: .85; max-width: 44ch; }
+.reel-ficha .titulo-reel {
+  font-family: var(--font-titular); text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3rem); line-height: .95;
+}
+.reel-ficha .titulo-reel small { display: block; font-size: .5em; color: var(--color-acento-1); margin-top: .25rem; }
+dl.ficha { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr; gap: .9rem 1.5rem; }
+dl.ficha dt { font-family: var(--font-marcador); color: var(--color-acento-1); font-size: 1.1rem; }
+dl.ficha dd { margin: .15rem 0 0; max-width: 48ch; }
+@media (min-width: 640px) {
+  dl.ficha { grid-template-columns: max-content 1fr; }
+  dl.ficha dd { margin: 0; }
+}
+.reel-ficha .hueco { margin-top: 1.5rem; }
+
+/* ---------- Tarjetas: crema sobre negro, marco grueso, etiqueta rotada ---------- */
+.tarjetas {
+  display: grid; gap: 2.25rem 2rem;
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+}
+.tarjeta {
+  position: relative;
+  background: var(--color-primario); color: var(--color-negro);
+  padding: 1.75rem 1.5rem 1.5rem;
+  border: var(--borde-grueso);
+  box-shadow: var(--sombra-dura);
+  border-radius: var(--radio);
+}
+.tarjeta:nth-child(2) { transform: rotate(1.2deg); }
+.tarjeta:nth-child(3) { transform: rotate(-1.2deg); }
+.tarjeta .etiqueta {
+  position: absolute; top: -.95rem; right: 1rem;
+  transform: rotate(5deg);
+  background: var(--color-acento-1); color: var(--color-negro);
+  font-family: var(--font-marcador); font-size: 1rem;
+  padding: .1rem .7rem;
+  border: 2px solid var(--color-negro);
+}
+.tarjeta h3 {
+  font-family: var(--font-titular); text-transform: uppercase;
+  font-size: 1.75rem; line-height: 1; margin-bottom: .6rem;
+}
+.tarjeta p + p { margin-top: .75rem; }
+.tarjeta a { color: var(--color-acento-3); font-weight: 600; }
+.tarjeta .hueco { margin-top: 1rem; }
+
+/* ---------- Herramientas ---------- */
+.herramientas { list-style: none; padding: 0; margin-top: 2rem; }
+.herramientas li {
+  display: grid; gap: .35rem 1.5rem;
+  grid-template-columns: 1fr;
+  padding: 1.4rem 0;
+  border-top: 2px solid rgba(245, 240, 225, .18);
+}
+.herramientas li:last-child { border-bottom: 2px solid rgba(245, 240, 225, .18); }
+.herramientas .nombre {
+  font-family: var(--font-titular); text-transform: uppercase;
+  font-size: 1.6rem; line-height: 1; letter-spacing: .02em;
+}
+.herramientas .nombre small {
+  display: block; font-family: var(--font-cuerpo); text-transform: none; letter-spacing: 0;
+  font-size: .875rem; color: var(--color-primario); opacity: .8; margin-top: .3rem; font-weight: 400;
+}
+.herramientas .que { max-width: 56ch; }
+.estado {
+  justify-self: start;
+  font-family: var(--font-marcador); font-size: 1rem; line-height: 1.2;
+  padding: .15rem .6rem;
+  border: 2px solid var(--color-primario);
+  color: var(--color-primario);
+  transform: rotate(-2deg);
+  white-space: nowrap;
+}
+.estado-ok { background: var(--color-acento-1); color: var(--color-negro); border-color: var(--color-negro); }
+.estado-hecho { background: var(--color-primario); color: var(--color-negro); border-color: var(--color-negro); }
+
+/* ---------- Huecos que debe rellenar Carlos ---------- */
+.hueco {
+  display: inline-block;
+  border: 2px dashed var(--color-acento-1);
+  color: var(--color-primario);
+  background: rgba(255, 212, 0, .08);
+  padding: .3rem .7rem;
+  border-radius: var(--radio);
+  font-size: .9375rem;
+}
+.tarjeta .hueco { color: var(--color-negro); background: rgba(255, 212, 0, .25); border-color: var(--color-negro); }
+.huecos-contacto { list-style: none; padding: 0; margin-top: 2rem; display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+.huecos-contacto li {
+  border: 3px dashed var(--color-acento-1);
+  border-radius: var(--radio);
+  padding: 1.25rem 1.25rem 1.35rem;
+  background: rgba(255, 212, 0, .06);
+}
+.huecos-contacto .red {
+  display: block;
+  font-family: var(--font-titular); text-transform: uppercase; font-size: 1.4rem; line-height: 1;
+  margin-bottom: .5rem;
+}
+.huecos-contacto p { font-size: .9375rem; max-width: 36ch; }
+
+/* ---------- Pie ---------- */
+.pie {
+  border-top: 3px solid var(--color-acento-1);
+  padding-block: 2rem;
+  font-family: var(--font-marcador);
+  color: var(--color-primario);
+}
+.pie .contenedor { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
+.pie a { color: var(--color-acento-1); }
+.pie .fecha { font-family: var(--font-cuerpo); font-size: .9375rem; opacity: .8; }
+
+/* ---------- Escritorio ---------- */
+@media (min-width: 720px) {
+  .herramientas li { grid-template-columns: 200px minmax(0, 1fr) auto; align-items: start; }
+  .huecos-contacto { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .reel { grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 4rem; }
+  .tarjetas { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 639px) {
+  .hero .garabato { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .tira span { animation: none; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+@media print {
+  .nav, .tira, .acciones { display: none; }
+  body { background: #fff; color: #000; }
+}

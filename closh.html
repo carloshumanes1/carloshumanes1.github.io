@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CLOSH. Músico y DJ: beats, cabina y pintura</title>
+  <meta name="description" content="CLOSH es el nombre de Carlos Humanes como músico y DJ: beats hechos en FL Studio con herramientas propias, el reel INFINITE y pintura digital de estilo Basquiat callejero.">
+  <meta name="theme-color" content="#0E0E0E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens-closh.css">
+  <link rel="stylesheet" href="css/closh.css">
+</head>
+<body>
+  <a class="salto" href="#principal">Ir al contenido</a>
+
+  <!-- Corona reutilizable (símbolo del estilo closh-basquiat) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="corona" viewBox="0 0 100 70">
+      <path d="M5 65 L15 15 L35 45 L50 8 L65 45 L85 15 L95 65 Z" fill="none" stroke="currentColor" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"></path>
+      <circle cx="15" cy="12" r="5" fill="currentColor"></circle>
+      <circle cx="50" cy="5" r="5" fill="currentColor"></circle>
+      <circle cx="85" cy="12" r="5" fill="currentColor"></circle>
+    </symbol>
+  </svg>
+
+  <header class="nav">
+    <div class="contenedor">
+      <a class="marca" href="#principal" aria-label="CLOSH, inicio de la página">
+        <svg class="corona" aria-hidden="true" focusable="false"><use href="#corona"></use></svg>
+        CLOSH<sup>©</sup>
+      </a>
+      <nav aria-label="Secciones">
+        <ul class="nav-lista">
+          <li><a href="#reel">El reel</a></li>
+          <li><a href="#que-hace">Qué hace</a></li>
+          <li><a href="#herramientas">Herramientas</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li class="otra-cara"><a href="index.html">← la cara seria: Carlos Humanes</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="principal">
+
+    <section class="hero" aria-labelledby="titulo">
+      <div class="contenedor">
+        <svg class="corona-grande" viewBox="0 0 100 70" aria-hidden="true" focusable="false"><use href="#corona"></use></svg>
+        <p class="kicker">música + calle ✶</p>
+        <h1 id="titulo">CLOSH<span class="copy" aria-hidden="true">©</span></h1>
+        <p class="entrada">Músico y DJ.</p>
+        <p class="firma">Hace beats, pincha y pinta. Todo firmado <b>CLOSH</b>.</p>
+        <div class="acciones">
+          <a class="boton" href="#reel">Ver el reel</a>
+          <a class="boton boton-rojo" href="#herramientas">Sus herramientas</a>
+        </div>
+        <svg class="garabato" viewBox="0 0 200 120" fill="none" stroke="#FFD400" stroke-width="5" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="M10 90 C 60 10, 100 110, 150 30 S 195 90, 190 60"></path>
+          <path d="M30 110 L70 70 M120 100 L150 75" stroke="#E63329"></path>
+        </svg>
+      </div>
+    </section>
+
+    <div class="tira" aria-hidden="true">
+      <span>
+        <b>★ CLOSH©</b><b>beats</b><b>DJ</b><b>marcador</b><b>que miras bro</b><b>★ CLOSH©</b><b>beats</b><b>DJ</b><b>marcador</b><b>que miras bro</b>
+      </span>
+    </div>
+
+    <section class="seccion" id="reel" aria-labelledby="h-reel">
+      <div class="contenedor">
+        <h2 id="h-reel">El reel</h2>
+        <p>Treinta segundos verticales para Instagram. El primero completo que sale del taller.</p>
+        <div class="reel">
+          <figure class="reel-marco">
+            <!-- HUECO: el mp4 final (INFINITE_ZENEA_reel_FINAL.mp4) pesa 26,8 MB, por encima del
+                 límite de 25 MB por fichero de esta web, así que no se ha copiado a material/.
+                 Cuando haya una versión que quepa (o se decida enlazar a Instagram/YouTube),
+                 sustituir el div.hueco-video por:
+                 <video controls playsinline preload="metadata" poster="material/infinite-zenea-portada.jpg" width="1080" height="1920">
+                   <source src="material/infinite-zenea-reel.mp4" type="video/mp4">
+                 </video> -->
+            <div class="hueco-video" role="group" aria-label="Hueco del vídeo del reel, pendiente">
+              <img src="material/infinite-zenea-portada.jpg" width="1080" height="1920" alt="Portada del reel: una nave industrial a oscuras con humo, un láser rojo y un bidón ardiendo; encima, el título INFINITE y el nombre ZENEA.">
+              <p class="hueco-texto"><strong>vídeo pendiente</strong>El reel final pesa 26,8 MB y esta web se ha limitado a 25 MB por fichero. O una versión recomprimida, o un enlace a donde esté publicado. Lo decide Carlos.</p>
+            </div>
+            <figcaption>Portada del reel. La imagen sí está; el vídeo, todavía no.</figcaption>
+          </figure>
+          <div class="reel-ficha">
+            <p class="titulo-reel">Infinite<small>Zenea</small></p>
+            <dl class="ficha">
+              <dt>Formato</dt><dd>Reel vertical de 30 segundos, 9:16.</dd>
+              <dt>Tempo</dt><dd>172 BPM. El drop entra a los 15,5 segundos y todos los cortes caen en el compás.</dd>
+              <dt>Quién sale</dt><dd>Marionetas de fieltro en una nave industrial: un DJ y tres bailarines. No sale ninguna persona real.</dd>
+              <dt>Cómo se hizo</dt><dd>Trece planos generados con IA a partir de un guion propio, plano a plano, y montados a compás en el taller de vídeo de CLOSH.</dd>
+            </dl>
+            <p class="hueco">pendiente: qué es ZENEA para CLOSH (¿alias, colaboración, encargo?) y dónde está publicado el tema</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="que-hace" aria-labelledby="h-que-hace">
+      <div class="contenedor">
+        <h2 id="h-que-hace">Qué hace</h2>
+        <p class="nota-marcador">tres cosas, el mismo trazo →</p>
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <span class="etiqueta" aria-hidden="true">estudio</span>
+            <h3>Beats</h3>
+            <p>Los hace en FL Studio con herramientas que se construye él mismo: un instrumento, un cazador de notas y un artesano de ritmos. Están más abajo.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="etiqueta" aria-hidden="true">cabina</span>
+            <h3>DJ</h3>
+            <p>Pincha. Y de pinchar salió la otra cara de esta web: <a href="index.html">una forma de hacerlo sin manos</a>, con la respiración y la cabeza, para personas con tetraplejia.</p>
+          </article>
+          <article class="tarjeta">
+            <span class="etiqueta" aria-hidden="true">marcador</span>
+            <h3>Pintura</h3>
+            <p>Noventa y cinco obras digitales firmadas CLOSH: Basquiat, graffiti, glitch y psicodelia, con la palabra dentro del cuadro. Crudo a propósito.</p>
+            <p class="hueco">galería pendiente: Carlos elige qué obras se enseñan aquí</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="herramientas" aria-labelledby="h-herramientas">
+      <div class="contenedor">
+        <h2 id="h-herramientas">Herramientas propias</h2>
+        <p>Cuatro programas hechos para su música, con el estado tal cual está hoy.</p>
+        <ul class="herramientas">
+          <li>
+            <p class="nombre">Sirope<small>instrumento VST3 para FL Studio</small></p>
+            <p class="que">Un rompler con sonidos propios: 62 instrumentos y 121 presets sintetizados en casa, dos capas, seis efectos, y se le puede arrastrar un WAV para convertirlo en instrumento.</p>
+            <span class="estado estado-ok">abre en FL Studio, en desarrollo</span>
+          </li>
+          <li>
+            <p class="nombre">CazaNotas<small>audio a MIDI</small></p>
+            <p class="que">Convierte una muestra de audio en notas para arrastrarlas al piano roll. Basado en NeuralNote y Basic Pitch, código abierto.</p>
+            <span class="estado">compilado, sin probar aún en FL</span>
+          </li>
+          <li>
+            <p class="nombre">agente_fl<small>artesano de beats</small></p>
+            <p class="que">Entran estilo, tono, partes y una semilla; salen un MIDI por parte y una maqueta en mp3. Con la misma semilla, siempre el mismo beat.</p>
+            <span class="estado">funciona por consola, falta el oído</span>
+          </li>
+          <li>
+            <p class="nombre">Vinilo<small>tocadiscos simulado</small></p>
+            <p class="que">El disco gira, la aguja suena donde la dejas y al acabar una cara hay que darle la vuelta. Sin conexión.</p>
+            <span class="estado estado-hecho">versión 2.1, verificada</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccion" id="contacto" aria-labelledby="h-contacto">
+      <div class="contenedor">
+        <h2 id="h-contacto">Contacto y redes</h2>
+        <p>Para bolos, beats o cualquier cosa de CLOSH. Los enlaces van aquí cuando Carlos decida cuáles salen públicos.</p>
+        <ul class="huecos-contacto">
+          <li><span class="red">Instagram</span><p>pendiente: enlace al perfil, si quiere que salga</p></li>
+          <li><span class="red">Dónde escuchar</span><p>pendiente: Spotify, SoundCloud, YouTube o lo que use</p></li>
+          <li><span class="red">Correo</span><p>pendiente: el correo de CLOSH que quiera público</p></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <span>CLOSH© · la otra cara: <a href="index.html">Carlos Humanes, ingeniero biomédico</a></span>
+      <span class="fecha">Página actualizada el 26 de noviembre de 2026.</span>
+    </div>
+  </footer>
+</body>
+</html>

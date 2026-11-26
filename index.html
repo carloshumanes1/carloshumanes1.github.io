@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carlos Humanes, ingeniero biomédico. Pinchar sin manos: tecnología de apoyo de bajo coste</title>
+  <meta name="description" content="Tecnología de apoyo de bajo coste para personas con tetraplejia: soplo y succión proporcionales, la nariz como cursor y unos 15 € en materiales. Proyecto de Carlos Humanes, ingeniero biomédico.">
+  <meta name="theme-color" content="#0B1B1F">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://carloshumanes1.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://carloshumanes1.github.io/">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Pinchar sin manos. Carlos Humanes, ingeniero biomédico">
+  <meta property="og:description" content="Tecnología de apoyo de bajo coste para personas con tetraplejia: un soplo que se mide, la nariz como cursor, unos 15 € en materiales.">
+  <meta property="og:image" content="https://carloshumanes1.github.io/material/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pinchar sin manos. Carlos Humanes, ingeniero biomédico">
+  <meta name="twitter:description" content="Tecnología de apoyo de bajo coste para personas con tetraplejia.">
+  <meta name="twitter:image" content="https://carloshumanes1.github.io/material/og.png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icono-180.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/bricolage-grotesque-normal-200-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/atkinson-hyperlegible-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Carlos Humanes",
+    "jobTitle": "Ingeniero biomédico",
+    "description": "Tecnología de apoyo de bajo coste para personas con tetraplejia: sip & puff proporcional, cursor de nariz y apps accesibles.",
+    "email": "mailto:carloshumanes@hotmail.com",
+    "telephone": "+34664728069",
+    "knowsAbout": ["Tecnología de apoyo", "Accesibilidad", "Lesión medular", "Ingeniería biomédica", "Audio y música", "Impresión 3D"],
+    "knowsLanguage": "es"
+  }
+  </script>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="salto" href="#principal">Ir al contenido</a>
+  <div class="progreso" aria-hidden="true"><span id="progreso-barra"></span></div>
+
+  <header class="nav" id="nav">
+    <div class="contenedor">
+      <a class="marca" href="#inicio">
+        <strong>Carlos Humanes</strong>
+        <span>Ingeniero biomédico</span>
+      </a>
+      <nav aria-label="Secciones">
+        <ul class="nav-lista">
+          <li><a href="#problema">El problema</a></li>
+          <li><a href="#propuesta">La propuesta</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#asi-se-ve">Así se ve</a></li>
+          <li><a href="#estado">Estado</a></li>
+          <li><a href="#material">Material</a></li>
+          <li><a href="#otros">Otros proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="principal">
+
+    <section class="hero" id="inicio" aria-labelledby="titulo">
+      <div class="hero-fondo" aria-hidden="true">
+        <span class="anillo anillo-1"></span>
+        <span class="anillo anillo-2"></span>
+      </div>
+      <div class="nariz" id="nariz" aria-hidden="true"></div>
+
+      <div class="contenedor hero-grid">
+        <div class="hero-texto">
+          <h1 id="titulo" class="titular">Pinchar sin manos.</h1>
+          <p class="entrada">Una persona con tetraplejia controla la música y el ordenador con la respiración y la cabeza. Unos 15 € en materiales.</p>
+          <p class="firma">Carlos Humanes, ingeniero biomédico.</p>
+          <div class="acciones">
+            <a class="boton boton-claro" href="#como-funciona">Ver cómo funciona</a>
+            <a class="boton boton-fantasma" href="mailto:carloshumanes@hotmail.com">Escríbeme</a>
+          </div>
+        </div>
+
+        <figure class="traza" id="traza-figura">
+          <div class="traza-cabecera">
+            <span class="traza-titulo">Presión en la boquilla</span>
+            <span class="traza-modo" id="modo">respiración tranquila, simulada</span>
+          </div>
+          <canvas id="traza" width="720" height="320" role="img" aria-label="Traza en tiempo real de la presión simulada: por encima del cero, soplo en ámbar; por debajo, succión en azul. Al lado, un pulsador todo o nada que solo se enciende cuando el soplo pasa de 1,5 kPa."></canvas>
+          <div class="lecturas">
+            <div class="lectura-grande"><span id="kpa">0,0</span><span class="unidad">kPa</span><span class="lectura-estado" id="estado">en reposo</span></div>
+            <div class="lampara"><span class="lamp" id="lamp"></span><span>Pulsador todo o nada: <b id="lamp-estado">apagado</b></span></div>
+          </div>
+          <div class="control">
+            <span>Aspirar</span>
+            <input type="range" id="presion" min="-50" max="50" value="0" step="1" aria-label="Presión simulada" aria-valuetext="0,0 kPa, en reposo">
+            <span>Soplar</span>
+          </div>
+          <figcaption>Arriba soplas, abajo aspiras. Si no tocas, respira sola. Simulación: el aparato real mide ±5 kPa, 100 veces por segundo.</figcaption>
+        </figure>
+      </div>
+
+      <div class="hero-pie" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="seccion seccion-oscura" id="problema" aria-labelledby="h-problema">
+      <div class="contenedor">
+        <h2 id="h-problema" class="revela">El problema</h2>
+        <div class="cuerpo">
+          <p class="destacado revela">Lo barato es un interruptor. Lo que mide de verdad es caro o no llega a España.</p>
+
+          <div class="matriz revela" role="img" aria-label="Con lo que cuesta un IntegraMouse Plus se montan 123 sip y puff de los nuestros">
+            <div class="matriz-uno"><span class="matriz-bloque"></span><span class="matriz-txt">1 IntegraMouse Plus<br>desde 1.850 €</span></div>
+            <div class="matriz-igual" aria-hidden="true">=</div>
+            <div class="matriz-muchos"><div class="matriz-puntos" id="matriz-puntos" data-n="123"></div><span class="matriz-txt">123 sip &amp; puff nuestros<br>unos 1.845 € en materiales</span></div>
+          </div>
+
+          <div class="cifras revela">
+            <div class="cifra cifra-ambar"><span class="cifra-num" data-contar="13">0</span><span class="cifra-txt">de los nuestros por un pulsador todo o nada</span></div>
+            <div class="cifra cifra-ambar"><span class="cifra-num" data-contar="123">0</span><span class="cifra-txt">por un IntegraMouse Plus</span></div>
+            <div class="cifra"><span class="cifra-num">±5<small>kPa</small></span><span class="cifra-txt">de rango, soplo y succión</span></div>
+            <div class="cifra"><span class="cifra-num" data-contar="100">0</span><span class="cifra-txt">lecturas por segundo</span></div>
+          </div>
+          <p class="fuente revela">Cuentas en materiales, redondeadas. Estimación, no presupuesto.</p>
+
+          <div class="barras revela" role="list" aria-label="Precios a escala">
+            <div class="barra-fila" role="listitem"><span class="barra-nombre">IntegraMouse Plus</span><span class="barra-pista"><span class="barra" style="--v: 100"></span></span><span class="barra-valor">desde 1.850 €</span></div>
+            <div class="barra-fila" role="listitem"><span class="barra-nombre">QuadStick en Europa</span><span class="barra-pista"><span class="barra" style="--v: 52.4"></span></span><span class="barra-valor">desde 970 €</span></div>
+            <div class="barra-fila" role="listitem"><span class="barra-nombre">Pulsador todo o nada</span><span class="barra-pista"><span class="barra" style="--v: 10.8"></span></span><span class="barra-valor">200 €</span></div>
+            <div class="barra-fila" role="listitem"><span class="barra-nombre">Breeze, sin envío</span><span class="barra-pista"><span class="barra" style="--v: 8.6"></span></span><span class="barra-valor">176 USD, unos 160 €</span></div>
+            <div class="barra-fila nuestra" role="listitem"><span class="barra-nombre">Nuestro sip &amp; puff</span><span class="barra-pista"><span class="barra" style="--v: .8"></span></span><span class="barra-valor">unos 15 €</span></div>
+          </div>
+
+          <details class="detalle revela">
+            <summary>La tabla completa, con fuentes</summary>
+            <div class="tabla-envoltorio">
+              <table>
+                <thead>
+                  <tr><th scope="col">Producto</th><th scope="col">Qué hace</th><th scope="col">Precio</th><th scope="col">Dónde</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Pulsador de soplo BJ-101 (Qinera)</td><td>Interruptor: soplar o no soplar</td><td>200,20 € con IVA</td><td>España</td></tr>
+                  <tr><td>Breeze (Origin Instruments)</td><td>Proporcional, ±4 kPa como ejes de joystick</td><td>176 USD de lista. Dos unidades puestas en España, estimación: 420 a 550 €</td><td>Estados Unidos, sin distribuidor en la Unión Europea</td></tr>
+                  <tr><td>QuadStick</td><td>Mando bucal con cuatro sensores de soplo y succión</td><td>449 a 549 USD de lista. En revendedores europeos desde 970 €</td><td>Estados Unidos; revendedores en Francia y Bélgica</td></tr>
+                  <tr><td>IntegraMouse Plus</td><td>Ratón de boca</td><td>1.850 a 2.420 €</td><td>Europa</td></tr>
+                  <tr class="nuestra"><td>Nuestro sip &amp; puff</td><td>Proporcional, ±5 kPa, soplo y succión, USB sin instalar nada</td><td>Unos 15 € en materiales</td><td>Se monta con componentes estándar</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="fuente">Precios comprobados el 24 de noviembre de 2026 en las fichas de los fabricantes y distribuidores. Los del QuadStick en Europa y del IntegraMouse proceden de extractos de buscador. El Breeze está convertido a 0,90 € por dólar. El estudio de mercado completo, con fuentes, está disponible a petición.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion-tinta" id="propuesta" aria-labelledby="h-propuesta">
+      <div class="contenedor">
+        <h2 id="h-propuesta" class="revela">La propuesta</h2>
+        <div class="cuerpo">
+          <p class="destacado revela">Dos canales que la persona ya domina.</p>
+          <div class="dos-columnas">
+            <div class="canal revela" id="canal-aire">
+              <svg class="picto" viewBox="0 0 240 140" aria-hidden="true">
+                <circle class="picto-halo" id="aire-halo" cx="72" cy="70" r="46"></circle>
+                <circle class="picto-core" id="aire-core" cx="72" cy="70" r="22"></circle>
+                <rect class="picto-pista" x="160" y="18" width="28" height="104" rx="14"></rect>
+                <rect class="picto-nivel" id="aire-nivel" x="160" y="70" width="28" height="52" rx="14"></rect>
+              </svg>
+              <h3>La respiración decide cuánto</h3>
+              <p>Soplar flojo sube poco; soplar fuerte, del todo. Aspirar baja.</p>
+              <span class="pista-toque">Mueve el ratón arriba y abajo por aquí</span>
+            </div>
+            <div class="canal revela" id="canal-nariz">
+              <svg class="picto" viewBox="0 0 240 140" aria-hidden="true">
+                <rect class="picto-marco" x="14" y="14" width="96" height="112" rx="6"></rect>
+                <ellipse class="picto-linea" cx="62" cy="70" rx="28" ry="36"></ellipse>
+                <path class="picto-linea" d="M48 60 q6 -5 12 0 M64 60 q6 -5 12 0"></path>
+                <circle class="picto-core" id="nariz-punto" cx="62" cy="75" r="5"></circle>
+                <rect class="picto-marco" x="130" y="22" width="96" height="76" rx="4"></rect>
+                <path class="picto-linea" d="M178 98 v14 M156 112 h44"></path>
+                <path class="picto-cursor" id="nariz-cursor" d="M0 0 l0 22 l6 -5 l5 10 l5 -2 l-5 -10 l8 -1 z" transform="translate(176 51)"></path>
+              </svg>
+              <h3>La cabeza decide qué</h3>
+              <p>La nariz mueve el cursor. Un guiño, la lengua o un soplo fuerte pulsan.</p>
+              <span class="pista-toque">Mueve el ratón por aquí: la nariz te sigue</span>
+            </div>
+          </div>
+          <p class="revela">Sin manos, sin contacto, nada invasivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="como-funciona" aria-labelledby="h-como">
+      <div class="contenedor">
+        <h2 id="h-como" class="revela">Cómo funciona</h2>
+        <div class="cuerpo">
+          <h3 class="revela">El aparato de soplo</h3>
+          <figure class="esquema revela">
+            <svg viewBox="0 0 560 120" role="img" aria-label="Esquema: boquilla, tubo, filtro, caja con el sensor de presión y cable USB hasta el ordenador. Por el tubo corre el aire.">
+              <path class="trazo" pathLength="1" d="M20 60 h40"></path>
+              <rect class="relleno" pathLength="1" x="60" y="52" width="26" height="16" rx="8"></rect>
+              <path class="trazo" pathLength="1" d="M86 60 h60"></path>
+              <rect class="relleno" pathLength="1" x="146" y="48" width="44" height="24" rx="4"></rect>
+              <path class="trazo" pathLength="1" d="M190 60 h50"></path>
+              <rect class="relleno" pathLength="1" x="240" y="34" width="110" height="52" rx="6"></rect>
+              <circle class="acento" cx="295" cy="60" r="8"></circle>
+              <path class="trazo" pathLength="1" d="M350 60 h70"></path>
+              <rect class="relleno" pathLength="1" x="420" y="30" width="110" height="60" rx="4"></rect>
+              <path class="acento-trazo" pathLength="1" d="M440 70 q10 -22 20 0 t20 0 t20 0 t20 0"></path>
+              <g class="aire">
+                <circle r="3"><animateMotion dur="2.6s" repeatCount="indefinite" path="M22 60 H286"></animateMotion></circle>
+                <circle r="3"><animateMotion dur="2.6s" begin="0.9s" repeatCount="indefinite" path="M22 60 H286"></animateMotion></circle>
+                <circle r="3"><animateMotion dur="2.6s" begin="1.8s" repeatCount="indefinite" path="M22 60 H286"></animateMotion></circle>
+              </g>
+              <text x="20" y="96">boquilla</text>
+              <text x="146" y="96">filtro</text>
+              <text x="240" y="108">sensor ±5 kPa</text>
+              <text x="364" y="52">USB</text>
+              <text x="556" y="108" text-anchor="end">ordenador: lo ve como MIDI</text>
+            </svg>
+          </figure>
+          <ul class="revela">
+            <li>Sensor de ±5 kPa; a la boca solo llega un tubo con boquilla.</li>
+            <li>USB: el ordenador lo ve como MIDI, sin instalar nada.</li>
+            <li>100 lecturas por segundo, umbrales por persona, unos 15 € en materiales.</li>
+          </ul>
+
+          <h3 class="revela">La nariz como ratón</h3>
+          <figure class="esquema revela">
+            <svg viewBox="0 0 560 200" role="img" aria-label="Esquema: una cara vista por la webcam con la nariz marcada y las cuatro esquinas de calibración; a la derecha, el cursor en la pantalla se mueve con la nariz">
+              <rect class="relleno" pathLength="1" x="20" y="16" width="220" height="168" rx="6"></rect>
+              <path class="trazo" pathLength="1" d="M40 36 h18 M40 36 v18 M220 36 h-18 M220 36 v18 M40 164 h18 M40 164 v-18 M220 164 h-18 M220 164 v-18"></path>
+              <ellipse class="trazo" pathLength="1" cx="130" cy="100" rx="46" ry="58"></ellipse>
+              <path class="trazo" pathLength="1" d="M108 86 q8 -6 16 0 M136 86 q8 -6 16 0"></path>
+              <path class="trazo" pathLength="1" d="M116 130 q14 10 28 0"></path>
+              <circle class="acento" cx="122" cy="100" r="6">
+                <animateMotion dur="7s" repeatCount="indefinite" path="M0 0 h16 v16 h-16 z" calcMode="spline" keyTimes="0;.25;.5;.75;1" keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"></animateMotion>
+              </circle>
+              <text x="20" y="198">webcam: nariz y cuatro esquinas</text>
+              <path class="acento-trazo" pathLength="1" d="M262 100 h60" marker-end="url(#flecha)"></path>
+              <defs>
+                <marker id="flecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#0B6E7D"></path>
+                </marker>
+              </defs>
+              <rect class="relleno" pathLength="1" x="340" y="16" width="200" height="130" rx="4"></rect>
+              <path class="trazo" pathLength="1" d="M400 146 v18 M370 164 h60"></path>
+              <path class="acento" d="M395 45 l0 26 l7 -6 l6 12 l5 -3 l-6 -11 l9 -1 z">
+                <animateMotion dur="7s" repeatCount="indefinite" path="M0 0 h70 v50 h-70 z" calcMode="spline" keyTimes="0;.25;.5;.75;1" keySplines=".4 0 .2 1;.4 0 .2 1;.4 0 .2 1;.4 0 .2 1"></animateMotion>
+              </path>
+              <text x="340" y="198">pantalla: el cursor va donde mira la nariz</text>
+            </svg>
+          </figure>
+          <ul class="revela">
+            <li>Webcam corriente y calibración de cuatro esquinas.</li>
+            <li>Clic con un guiño, la lengua o un soplo fuerte.</li>
+            <li>Vale para todo Windows: navegador, mensajes, videollamadas, dictado.</li>
+          </ul>
+
+          <p class="destacado revela">Una familia de programas para Windows, un solo código.</p>
+        </div>
+      </div>
+      <div class="cinta" aria-hidden="true">
+        <div class="cinta-pista">
+          <span>DJ Sip &amp; Blow</span><span>DJ Sip &amp; Blow Simple</span><span>DJ Tetris</span><span>DJ Tetris Sip &amp; Puff</span><span>Ratón de nariz</span><span>Ratón de nariz Sip &amp; Puff</span>
+          <span>DJ Sip &amp; Blow</span><span>DJ Sip &amp; Blow Simple</span><span>DJ Tetris</span><span>DJ Tetris Sip &amp; Puff</span><span>Ratón de nariz</span><span>Ratón de nariz Sip &amp; Puff</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="asi-se-ve" aria-labelledby="h-asi">
+      <div class="contenedor">
+        <h2 id="h-asi" class="revela">Así se ve</h2>
+        <div class="cuerpo">
+          <p class="destacado revela">DJ Tetris, el programa que se instala en casa.</p>
+          <div class="galeria">
+            <a class="captura captura-grande revela" href="material/capturas/dj-tetris-mesa.jpg" data-visor>
+              <picture>
+                <source srcset="material/capturas/dj-tetris-mesa.webp" type="image/webp">
+                <img src="material/capturas/dj-tetris-mesa.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="La mesa de DJ Tetris: dos pistas con su onda, PLAY y AUTOSYNC por deck, reverb, efectos y bucles, y las barras de volumen a los lados">
+              </picture>
+              <span>La mesa: dos pistas, efectos y bucles. Todo se pulsa con la nariz y un guiño.</span>
+            </a>
+            <a class="captura revela" href="material/capturas/dj-tetris-calibrar-nariz.jpg" data-visor>
+              <picture>
+                <source srcset="material/capturas/dj-tetris-calibrar-nariz.webp" type="image/webp">
+                <img src="material/capturas/dj-tetris-calibrar-nariz.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Calibración del cursor de nariz: el programa pide llevar la cabeza a cada esquina">
+              </picture>
+              <span>Calibrar la nariz: cuatro esquinas.</span>
+            </a>
+            <a class="captura revela" href="material/capturas/dj-tetris-calibrar-clic.jpg" data-visor>
+              <picture>
+                <source srcset="material/capturas/dj-tetris-calibrar-clic.webp" type="image/webp">
+                <img src="material/capturas/dj-tetris-calibrar-clic.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="Calibración del clic: el programa pide tres guiños seguidos mirando a la cámara">
+              </picture>
+              <span>Calibrar el clic: tres guiños.</span>
+            </a>
+          </div>
+          <p class="fuente revela">Capturas de la prueba del 7 de noviembre de 2026, sin cámara conectada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="estado" aria-labelledby="h-estado">
+      <div class="contenedor">
+        <h2 id="h-estado" class="revela">Estado real</h2>
+        <div class="cuerpo">
+          <p class="destacado revela">Montado, sonando y probado con una persona.</p>
+          <ol class="cronologia revela">
+            <li><time datetime="2026-11-13">13 de noviembre de 2026</time>Aparato montado y funcionando.</li>
+            <li><time datetime="2026-11-17">17 de noviembre</time>Sonando en una mesa de DJ profesional.</li>
+            <li><time datetime="2026-11-20">20 de noviembre</time>Primera prueba con una persona usuaria y cámara real.</li>
+            <li><time>Después</time>DJ Tetris entregado a un usuario para probarlo en casa.</li>
+          </ol>
+          <aside class="aviso revela">
+            <h3>Lo que falta</h3>
+            <ul>
+              <li>Probar con más personas.</li>
+              <li>Validar los umbrales con terapeutas.</li>
+              <li>Medir resultados clínicos: hoy son hipótesis, no resultados.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="material" aria-labelledby="h-material">
+      <div class="contenedor">
+        <h2 id="h-material" class="revela">Material</h2>
+        <div class="cuerpo">
+          <ul class="descargas">
+            <li class="revela"><a href="material/portfolio-profesional.pptx">Portfolio profesional</a><small>13 páginas, PowerPoint, 44 KB</small></li>
+            <li class="revela"><a href="material/pinchar-sin-manos-sanitaria.pptx">Pinchar sin manos, para sanitarios</a><small>11 páginas, PowerPoint, 48 KB</small></li>
+            <li class="revela"><a href="material/dj-tetris-sip-puff.pptx">DJ Tetris Sip &amp; Puff, guía rápida</a><small>10 páginas, PowerPoint, 45 KB</small></li>
+            <li class="revela"><a href="material/raton-de-nariz.pptx">Ratón de nariz, guía rápida</a><small>11 páginas, PowerPoint, 45 KB</small></li>
+          </ul>
+          <div class="hueco-bloque revela">Vídeo pendiente: 30 a 60 segundos del aparato y del cursor de nariz funcionando.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="contesta" aria-labelledby="h-contesta">
+      <div class="contenedor">
+        <h2 id="h-contesta" class="revela">Contesta</h2>
+        <div class="cuerpo">
+          <div class="contesta revela">
+            <svg class="picto picto-telefono" viewBox="0 0 240 140" aria-hidden="true">
+              <g class="telefono">
+                <rect class="picto-marco" x="52" y="14" width="56" height="112" rx="10"></rect>
+                <rect class="picto-pantalla" x="58" y="24" width="44" height="88" rx="4"></rect>
+                <circle class="picto-linea" cx="80" cy="119" r="3"></circle>
+                <animateTransform attributeName="transform" type="rotate" values="0 80 70;-5 80 70;5 80 70;-4 80 70;4 80 70;0 80 70;0 80 70;0 80 70;0 80 70" dur="2.8s" repeatCount="indefinite"></animateTransform>
+              </g>
+              <path class="picto-onda" d="M122 50 q14 20 0 40">
+                <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"></animate>
+              </path>
+              <path class="picto-onda" d="M136 40 q24 30 0 60">
+                <animate attributeName="opacity" values="0;1;0" dur="2.8s" begin=".3s" repeatCount="indefinite"></animate>
+              </path>
+              <g class="burbuja">
+                <path class="picto-burbuja" d="M160 54 h66 a8 8 0 0 1 8 8 v24 a8 8 0 0 1 -8 8 h-50 l-10 10 v-10 h-6 a8 8 0 0 1 -8 -8 v-24 a8 8 0 0 1 8 -8 z"></path>
+                <text class="picto-txt" x="193" y="80" text-anchor="middle">«contesta»</text>
+                <animate attributeName="opacity" values="0;0;0;1;1;1;0" dur="2.8s" repeatCount="indefinite"></animate>
+              </g>
+            </svg>
+            <div>
+              <p class="destacado">Contestar el teléfono hablando.</p>
+              <p>App Android: anuncia quién llama; «contesta», «rechaza» o «cuelga la llamada». Descuelga por voz en un Galaxy A15; la versión 0.6 está pendiente de probar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="otros" aria-labelledby="h-otros">
+      <div class="contenedor">
+        <h2 id="h-otros" class="revela">Otros proyectos</h2>
+        <div class="cuerpo">
+          <ul class="chips">
+            <li class="revela"><b>CazaNotas</b><span>audio a MIDI, C++ y JUCE</span></li>
+            <li class="revela"><b>SIROPE</b><span>instrumento VST3, 62 instrumentos, 121 presets</span></li>
+            <li class="revela"><b>dj_hands_app</b><span>DJ por gestos con la cámara, Flutter</span></li>
+            <li class="revela"><b>VINILO</b><span>tocadiscos simulado, sin conexión</span></li>
+            <li class="revela"><b>Consola retro portátil</b><span>Raspberry Pi 4, carcasa impresa en 3D</span></li>
+            <li class="revela"><b>Mini consola bare-metal</b><span>C sobre Cortex-M0+</span></li>
+            <li class="revela"><b>Droide BB-8</b><span>aprendizaje por refuerzo en simulación</span></li>
+            <li class="revela"><b>Piezas en PLA</b><span>cejilla de guitarra, adaptadores</span></li>
+            <li class="revela"><b>Ecosistema de agentes</b><span>diseño, vídeo, web, 3D y presentaciones, con un orquestador</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion-tinta" id="contacto" aria-labelledby="h-contacto">
+      <div class="contenedor">
+        <h2 id="h-contacto" class="revela">Quién soy</h2>
+        <div class="cuerpo">
+          <p class="revela">Ingeniero biomédico. Quiero abaratar la tecnología de apoyo para personas con discapacidad motora. Construyo y pruebo antes de contar. También hago música como <a href="closh.html">CLOSH</a>.</p>
+          <h3 class="revela">Qué propongo</h3>
+          <ul class="revela">
+            <li>Probar con personas usuarias: un PC, una webcam, el aparato y 30 minutos.</li>
+            <li>Criterio clínico para ajustar los umbrales.</li>
+            <li>Fundaciones y asociaciones: programas o contactos.</li>
+          </ul>
+          <p class="destacado revela">Una llamada de 20 minutos basta.</p>
+          <div class="acciones acciones-contacto revela">
+            <a class="boton boton-tinta" href="mailto:carloshumanes@hotmail.com">Escríbeme</a>
+            <a class="boton boton-secundario" href="tel:+34664728069">Llámame</a>
+          </div>
+          <dl class="contacto revela">
+            <dt>Correo</dt><dd><a href="mailto:carloshumanes@hotmail.com">carloshumanes@hotmail.com</a></dd>
+            <dt>Teléfono</dt><dd><a href="tel:+34664728069">664 728 069</a></dd>
+            <dt>LinkedIn</dt><dd><span class="hueco">pendiente: enlace al perfil</span></dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Carlos Humanes, ingeniero biomédico. Página actualizada el 26 de noviembre de 2026. La otra cara: <a href="closh.html">CLOSH, músico y DJ</a>.</p>
+    </div>
+  </footer>
+
+  <button class="arriba" id="arriba" type="button" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <dialog class="visor" id="visor" aria-label="Captura ampliada">
+    <button class="visor-cerrar" id="visor-cerrar" type="button" aria-label="Cerrar">×</button>
+    <img id="visor-img" alt="">
+    <p id="visor-pie"></p>
+  </dialog>
+
+  <script src="js/sitio.js"></script>
+</body>
+</html>

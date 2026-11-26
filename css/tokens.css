@@ -1,0 +1,63 @@
+/* Estilo: sanitario-sobrio (v2, «la web respira») — tokens de diseño. Stack vanilla (D-002). */
+:root {
+  /* Paleta clara (secciones) */
+  --color-fondo:        #FFFFFF;
+  --color-superficie:   #EEF4F5;
+  --color-tinta:        #142A2F;
+  --color-texto-suave:  #4B6168;
+  --color-primario:     #0B6E7D;
+  --color-primario-osc: #084F5A;
+  --color-soplo:        #B97A00;
+  --color-succion:      #2F6FB3;
+  --color-borde:        #CFDDE0;
+  --nav-fondo:          rgba(255, 255, 255, .86);
+  --sombra-captura:     rgba(11, 27, 31, .18);
+  color-scheme: light dark;
+
+  /* Paleta oscura (hero) */
+  --hero-fondo:         #0B1B1F;
+  --hero-fondo-2:       #10272C;
+  --hero-texto:         #F2F7F7;
+  --hero-suave:         #9DB7BC;
+  --hero-linea:         rgba(242, 247, 247, .12);
+  --hero-soplo:         #F2B134;
+  --hero-succion:       #5EA2E8;
+  --hero-acento:        #2FB8CC;
+
+  /* Tipografía: display expresiva + cuerpo hiperlegible */
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font:         "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --peso-normal: 400;
+  --peso-fuerte: 700;
+  --escala-h1: clamp(3.25rem, 11vw, 9.5rem);
+  --escala-h2: clamp(2rem, 4vw, 3rem);
+  --escala-h3: clamp(1.35rem, 2.2vw, 1.75rem);
+  --cuerpo: 1.0625rem;
+  --line-height: 1.6;
+  --medida: 66ch;
+
+  /* Forma, espacio y movimiento */
+  --radio: 6px;
+  --ancho-max: 1180px;
+  --margen: clamp(1rem, 4vw, 2.5rem);
+  --bloque: clamp(4rem, 9vw, 8rem);
+  --suave: cubic-bezier(.2, .8, .2, 1);
+  --dur: .8s;
+}
+
+/* Modo oscuro automático (el hero y «El problema» ya son oscuros y no cambian) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fondo:        #0F2126;
+    --color-superficie:   #16303A;
+    --color-tinta:        #EEF4F5;
+    --color-texto-suave:  #A9C0C5;
+    --color-primario:     #3CC2D6;
+    --color-primario-osc: #7FDCE8;
+    --color-soplo:        #F2B134;
+    --color-succion:      #5EA2E8;
+    --color-borde:        rgba(255, 255, 255, .14);
+    --nav-fondo:          rgba(15, 33, 38, .86);
+    --sombra-captura:     rgba(0, 0, 0, .45);
+  }
+}
