@@ -169,10 +169,10 @@
     hero.addEventListener('pointerleave', function () { dentro = false; hero.classList.remove('con-nariz'); });
   }
 
-  /* 6b. Matriz: 123 puntos que se encienden uno tras otro */
+  /* 6b. Matriz: 74 puntos que se encienden uno tras otro */
   var matriz = document.getElementById('matriz-puntos');
   if (matriz) {
-    var total = parseInt(matriz.getAttribute('data-n'), 10) || 123;
+    var total = parseInt(matriz.getAttribute('data-n'), 10) || 74;
     var puntos = document.createDocumentFragment();
     for (var k = 0; k < total; k++) {
       var punto = document.createElement('i');

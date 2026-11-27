@@ -362,7 +362,7 @@ dl.lista dd { margin: .15rem 0 0; color: var(--color-texto-suave); }
 .seccion-oscura tr.nuestra td:first-child { border-left-color: var(--hero-soplo); }
 .seccion-oscura :focus-visible { outline-color: var(--hero-acento); }
 
-/* Matriz: 1 aparato caro = 123 de los nuestros */
+/* Matriz: 1 aparato caro = 74 de los nuestros */
 .matriz { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: center; margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--hero-linea); border-radius: 14px; background: rgba(255, 255, 255, .035); }
 .matriz > * { min-width: 0; }
 .matriz-uno, .matriz-muchos { display: grid; gap: .9rem; }

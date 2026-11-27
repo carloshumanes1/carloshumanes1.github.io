@@ -44,12 +44,14 @@ Desde MANIFIESTO: configuración `web-carlos-humanes` del `.claude/launch.json`
 3. Galería de pintura: elegir qué obras (de las 95 de `Documents\pinturs\extraidas`) se enseñan.
 4. Contacto y redes: Instagram, dónde escuchar (Spotify/SoundCloud/YouTube) y correo de CLOSH.
 
-## Publicar en GitHub Pages (gratis, cuenta carloshumanes1)
-1. Crear un repo público (p. ej. `carloshumanes1.github.io` para tenerlo en la raíz).
-2. Copiar el CONTENIDO de esta carpeta a la raíz del repo y hacer push a `main`.
-3. Settings → Pages → Source: Deploy from a branch → `main` / `/ (root)`.
-4. Dominio propio (opcional): fichero `CNAME` con el dominio + registro DNS en el proveedor.
-5. Poner la URL absoluta de la web en `og:image` / `twitter:image` del `<head>` (comentario ahí).
+## Publicada en GitHub Pages (26-nov-2026)
+Dirección pública: **https://carloshumanes1.github.io/** (repo público `carloshumanes1/carloshumanes1.github.io`,
+rama `main`, raíz). Para publicar cambios: `python publicar.py "mensaje"` desde esta carpeta. El script copia
+la carpeta (sin previsualizaciones ni notas internas) al clon `agente_web/_publicado/carloshumanes1.github.io/`,
+hace commit y push; GitHub reconstruye la web en un minuto. OJO: el push necesita la sesión de GitHub del
+usuario (Git Credential Manager); lanzarlo desde el Terminal de la app o una consola de Carlos, no desde el
+sandbox de Claude (ahí GCM se cuelga y puede borrar la credencial). Dominio propio (opcional): fichero `CNAME`
+con el dominio + registro DNS, y cambiar `canonical`/`og:url`/`og:image` en el `<head>`.
 
 ## Reglas de contenido
 Todas las cifras salen de `dj_accesible/docs/ESTUDIO_MERCADO_2026-11-24.md` y de los
