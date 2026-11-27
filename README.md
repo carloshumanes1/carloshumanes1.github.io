@@ -39,7 +39,8 @@ Desde MANIFIESTO: configuración `web-carlos-humanes` del `.claude/launch.json`
 3. Opcional: una foto. Hoy la página no lleva ninguna imagen, solo esquemas SVG.
 
 ## Huecos de la cara CLOSH (`closh.html`, borde discontinuo amarillo)
-1. Qué es ZENEA para CLOSH (alias, colaboración, encargo) y dónde está publicado el tema.
+1. Enlace al tema o al perfil de ZENEA, si quiere que salga. (Resuelto el 27-nov: ZENEA es un colega;
+   «Infinite» es su tema y CLOSH le hizo el vídeo.)
 2. Galería de pintura: elegir qué obras (de las 95 de `Documents\pinturs\extraidas`) se enseñan.
 3. Contacto y redes: Instagram, dónde escuchar (Spotify/SoundCloud/YouTube) y correo de CLOSH.
 
