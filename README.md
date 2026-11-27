@@ -20,12 +20,14 @@ para la demo del hero. Sin build.
 - `material/` — los PPTX que se descargan desde la página (copias de
   `dj_accesible/presentaciones`, nombres sin espacios) y `material/capturas/` (tres capturas
   reales de DJ Tetris del 7-nov-2026, recortadas a la ventana; ver D-015).
-- `closh.html` — la cara CLOSH: hero, reel INFINITE (hoy solo la portada), qué hace, herramientas
+- `closh.html` — la cara CLOSH: hero, reel INFINITE (vídeo incrustado), qué hace, herramientas
   propias con estado honesto y huecos de contacto/redes.
 - `css/tokens-closh.css` — copia literal de `styles/closh-basquiat/tokens.css`. `css/closh.css` —
   componentes de esa cara. No tocan `tokens.css` ni `styles.css` de la profesional.
-- `material/infinite-zenea-portada.jpg` — portada del reel (130 KB). El mp4 final pesa 26,8 MB,
-  por encima del límite de 25 MB por fichero, y NO está copiado (hueco visible en la página).
+- `material/infinite-zenea-reel.mp4` — el reel recomprimido para la web (10,7 MB; el original pesa
+  26,8 MB): 1080×1920, H.264 CRF 26, AAC 160k, `+faststart`. `material/infinite-zenea-portada.jpg` es
+  su póster (130 KB). OJO: el `http.server` de Python no atiende rangos, así que en local el vídeo
+  suena pero no deja saltar a un minuto concreto; GitHub Pages sí los atiende.
 
 ## Ver en local
 Desde MANIFIESTO: configuración `web-carlos-humanes` del `.claude/launch.json`
@@ -37,12 +39,11 @@ Desde MANIFIESTO: configuración `web-carlos-humanes` del `.claude/launch.json`
 3. Opcional: una foto. Hoy la página no lleva ninguna imagen, solo esquemas SVG.
 
 ## Huecos de la cara CLOSH (`closh.html`, borde discontinuo amarillo)
-1. El vídeo del reel: recomprimir el mp4 por debajo de 25 MB (p. ej. `ffmpeg -i IN.mp4 -c:v libx264
-   -crf 26 -preset slow -c:a aac -b:a 128k OUT.mp4`) y guardarlo como `material/infinite-zenea-reel.mp4`,
-   o enlazar a donde esté publicado. En `closh.html` hay un `<video>` preparado en un comentario.
-2. Qué es ZENEA para CLOSH (alias, colaboración, encargo) y dónde está publicado el tema.
-3. Galería de pintura: elegir qué obras (de las 95 de `Documents\pinturs\extraidas`) se enseñan.
-4. Contacto y redes: Instagram, dónde escuchar (Spotify/SoundCloud/YouTube) y correo de CLOSH.
+1. Qué es ZENEA para CLOSH (alias, colaboración, encargo) y dónde está publicado el tema.
+2. Galería de pintura: elegir qué obras (de las 95 de `Documents\pinturs\extraidas`) se enseñan.
+3. Contacto y redes: Instagram, dónde escuchar (Spotify/SoundCloud/YouTube) y correo de CLOSH.
+
+El vídeo del reel ya no es hueco: está incrustado desde el 27-nov-2026 (addenda de D-012).
 
 ## Publicada en GitHub Pages (26-nov-2026)
 Dirección pública: **https://carloshumanes1.github.io/** (repo público `carloshumanes1/carloshumanes1.github.io`,

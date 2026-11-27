@@ -75,18 +75,13 @@
         <p>Treinta segundos verticales para Instagram. El primero completo que sale del taller.</p>
         <div class="reel">
           <figure class="reel-marco">
-            <!-- HUECO: el mp4 final (INFINITE_ZENEA_reel_FINAL.mp4) pesa 26,8 MB, por encima del
-                 límite de 25 MB por fichero de esta web, así que no se ha copiado a material/.
-                 Cuando haya una versión que quepa (o se decida enlazar a Instagram/YouTube),
-                 sustituir el div.hueco-video por:
-                 <video controls playsinline preload="metadata" poster="material/infinite-zenea-portada.jpg" width="1080" height="1920">
-                   <source src="material/infinite-zenea-reel.mp4" type="video/mp4">
-                 </video> -->
-            <div class="hueco-video" role="group" aria-label="Hueco del vídeo del reel, pendiente">
-              <img src="material/infinite-zenea-portada.jpg" width="1080" height="1920" alt="Portada del reel: una nave industrial a oscuras con humo, un láser rojo y un bidón ardiendo; encima, el título INFINITE y el nombre ZENEA.">
-              <p class="hueco-texto"><strong>vídeo pendiente</strong>El reel final pesa 26,8 MB y esta web se ha limitado a 25 MB por fichero. O una versión recomprimida, o un enlace a donde esté publicado. Lo decide Carlos.</p>
-            </div>
-            <figcaption>Portada del reel. La imagen sí está; el vídeo, todavía no.</figcaption>
+            <!-- material/infinite-zenea-reel.mp4: el reel final (INFINITE_ZENEA_reel_FINAL.mp4, 26,8 MB)
+                 recomprimido para la web: 1080x1920, H.264 CRF 26, AAC 160k, faststart. 10,7 MB, SSIM 0,989. -->
+            <video controls playsinline preload="metadata" poster="material/infinite-zenea-portada.jpg" width="1080" height="1920" aria-label="Reel INFINITE de ZENEA, 30 segundos con sonido">
+              <source src="material/infinite-zenea-reel.mp4" type="video/mp4">
+              <a href="material/infinite-zenea-reel.mp4">Descargar el reel INFINITE (mp4, 10,7 MB)</a>
+            </video>
+            <figcaption>Dale al play: lleva sonido. Treinta segundos, 10,7 MB.</figcaption>
           </figure>
           <div class="reel-ficha">
             <p class="titulo-reel">Infinite<small>Zenea</small></p>
